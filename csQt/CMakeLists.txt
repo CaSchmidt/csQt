@@ -4,6 +4,9 @@ cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
 
 project(csQt)
 
+# Build Tests?
+option(ENABLE_TESTS "Enable tests" OFF)
+
 ### Modules ##################################################################
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
@@ -73,3 +76,9 @@ install(TARGETS csQt
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
   )
+
+### Tests ####################################################################
+
+if(ENABLE_TESTS)
+  add_subdirectory(tests)
+endif()
