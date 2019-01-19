@@ -55,7 +55,7 @@ csTreeModel::~csTreeModel()
 
 void csTreeModel::setTree(csAbstractTreeItem *rootItem)
 {
-  if( rootItem != 0 ) {
+  if( rootItem != nullptr ) {
     beginResetModel();
     delete _rootItem;
     _rootItem = rootItem;
@@ -108,7 +108,7 @@ QModelIndex csTreeModel::index(int row, int column,
       : _rootItem;
 
   csAbstractTreeItem *childItem = parentItem->childItem(row);
-  if( childItem != 0 ) {
+  if( childItem != nullptr ) {
     return createIndex(row, column, childItem);
   }
 

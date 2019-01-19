@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSITEMSEARCHER_H__
-#define __CSITEMSEARCHER_H__
+#ifndef CSITEMSEARCHER_H
+#define CSITEMSEARCHER_H
 
 #include <QtCore/QObject>
 
@@ -41,7 +41,7 @@ class QAbstractItemView;
 class CS_QT_EXPORT csItemSearcher : public QObject {
   Q_OBJECT
 public:
-  csItemSearcher(QObject *parent = 0);
+  csItemSearcher(QObject *parent = nullptr);
   ~csItemSearcher();
 
   bool eventFilter(QObject *watched, QEvent *event);
@@ -62,4 +62,4 @@ private:
   QString matchString;
 };
 
-#endif // __CSITEMSEARCHER_H__
+#endif // CSITEMSEARCHER_H

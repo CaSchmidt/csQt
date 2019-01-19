@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSIMAGETIP_H__
-#define __CSIMAGETIP_H__
+#ifndef CSIMAGETIP_H
+#define CSIMAGETIP_H
 
 #include <csQt/csqt_config.h>
 
@@ -49,7 +49,7 @@ public:
   Q_DECLARE_FLAGS(Flags, Flag)
 
   static void showImage(const QPoint& globalPos, const QImage& image,
-                        QWidget *widget = 0,
+                        QWidget *widget = nullptr,
                         const csImageTip::Flags flags = csImageTip::NoFlags);
 
 private:
@@ -58,4 +58,4 @@ private:
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(csImageTip::Flags)
 
-#endif // __CSIMAGETIP_H__
+#endif // CSIMAGETIP_H

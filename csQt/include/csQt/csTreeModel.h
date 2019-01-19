@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSTREEMODEL_H__
-#define __CSTREEMODEL_H__
+#ifndef CSTREEMODEL_H
+#define CSTREEMODEL_H
 
 #include <QtCore/QAbstractItemModel>
 
@@ -63,4 +63,4 @@ private:
 
 CS_QT_EXPORT csAbstractTreeItem *csTreeItem(const QModelIndex& index);
 
-#endif // __CSTREEMODEL_H__
+#endif // CSTREEMODEL_H

@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSCOLUMNRESIZER_H__
-#define __CSCOLUMNRESIZER_H__
+#ifndef CSCOLUMNRESIZER_H
+#define CSCOLUMNRESIZER_H
 
 #include <QtCore/QObject>
 
@@ -39,10 +39,10 @@
 class CS_QT_EXPORT csColumnResizer : public QObject {
   Q_OBJECT
 public:
-  csColumnResizer(QObject *parent = 0);
+  csColumnResizer(QObject *parent = nullptr);
   ~csColumnResizer();
 
   bool eventFilter(QObject *watched, QEvent *event);
 };
 
-#endif // __CSCOLUMNRESIZER_H__
+#endif // CSCOLUMNRESIZER_H

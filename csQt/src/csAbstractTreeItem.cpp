@@ -46,7 +46,7 @@ csAbstractTreeItem::~csAbstractTreeItem()
 
 void csAbstractTreeItem::appendChild(csAbstractTreeItem *child)
 {
-  if( child != 0 ) {
+  if( child != nullptr ) {
     child->_parent = this;
     _children.append(child);
   }
@@ -54,7 +54,7 @@ void csAbstractTreeItem::appendChild(csAbstractTreeItem *child)
 
 void csAbstractTreeItem::insertChild(int row, csAbstractTreeItem *child)
 {
-  if( child != 0 ) {
+  if( child != nullptr ) {
     child->_parent = this;
     _children.insert(row, child);
   }
@@ -63,10 +63,10 @@ void csAbstractTreeItem::insertChild(int row, csAbstractTreeItem *child)
 csAbstractTreeItem *csAbstractTreeItem::takeChild(int row)
 {
   if( row < 0  ||  row >= _children.size() ) {
-    return 0;
+    return nullptr;
   }
   csAbstractTreeItem *child = _children.takeAt(row);
-  child->_parent = 0;
+  child->_parent = nullptr;
   return child;
 }
 
@@ -79,7 +79,7 @@ void csAbstractTreeItem::removeChild(int row)
 
 csAbstractTreeItem *csAbstractTreeItem::childItem(int row) const
 {
-  return _children.value(row, 0);
+  return _children.value(row, nullptr);
 }
 
 csAbstractTreeItem *csAbstractTreeItem::parentItem() const
@@ -89,7 +89,7 @@ csAbstractTreeItem *csAbstractTreeItem::parentItem() const
 
 int csAbstractTreeItem::row() const
 {
-  if( _parent != 0 ) {
+  if( _parent != nullptr ) {
     return _parent->_children.indexOf(const_cast<csAbstractTreeItem*>(this));
   }
   return 0;

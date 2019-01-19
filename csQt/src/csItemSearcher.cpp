@@ -54,7 +54,7 @@ csItemSearcher::~csItemSearcher()
 bool csItemSearcher::eventFilter(QObject *watched, QEvent *event)
 {
   QAbstractItemView *view = dynamic_cast<QAbstractItemView*>(watched);
-  if( event->type() == QEvent::KeyPress  &&  view != 0 ) {
+  if( event->type() == QEvent::KeyPress  &&  view != nullptr ) {
     QKeyEvent *keyEvent = dynamic_cast<QKeyEvent*>(event);
 
     if( (Qt::Key_A <= keyEvent->key() && keyEvent->key() <= Qt::Key_Z) ||

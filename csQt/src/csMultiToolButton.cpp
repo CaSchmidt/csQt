@@ -46,21 +46,21 @@ csMultiToolButton::csMultiToolButton(const csMultiItems& items, const int invali
   setPopupMode(QToolButton::InstantPopup);
   setToolButtonStyle(Qt::ToolButtonTextOnly);
 
-  QAction *defaultAction(0);
+  QAction *defaultAction(nullptr);
 
   QMenu *menu = new QMenu(this);
   foreach (const csMultiItem& item, items) {
     QAction *action = menu->addAction(item.first);
     action->setData(item.second);
     connect(action, &QAction::triggered, this, &csMultiToolButton::activateSelection);
-    if( defaultAction == 0 ) {
+    if( defaultAction == nullptr ) {
       defaultAction = action;
     }
     _actions.push_back(action);
   }
   setMenu(menu);
 
-  if( defaultAction != 0 ) {
+  if( defaultAction != nullptr ) {
     defaultAction->trigger();
   }
 }
@@ -93,7 +93,7 @@ void csMultiToolButton::setCurrentSelection(int id)
 void csMultiToolButton::activateSelection()
 {
   QAction *action = dynamic_cast<QAction*>(sender());
-  if( action == 0 ) {
+  if( action == nullptr ) {
     _currentSelection = _invalidId;
     return;
   }

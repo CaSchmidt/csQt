@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSCOLLAPSER_H__
-#define __CSCOLLAPSER_H__
+#ifndef CSCOLLAPSER_H
+#define CSCOLLAPSER_H
 
 #include <QtWidgets/QToolButton>
 
@@ -52,4 +52,4 @@ private:
   QWidget *_widget;
 };
 
-#endif // __CSCOLLAPSER_H__
+#endif // CSCOLLAPSER_H

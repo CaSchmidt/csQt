@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSSUBSTRINGHIGHLIGHTER_H__
-#define __CSSUBSTRINGHIGHLIGHTER_H__
+#ifndef CSSUBSTRINGHIGHLIGHTER_H
+#define CSSUBSTRINGHIGHLIGHTER_H
 
 #include <QtCore/QRegExp>
 #include <QtGui/QSyntaxHighlighter>
@@ -63,4 +63,4 @@ private:
   QTextCharFormat _fmt;
 };
 
-#endif // __CSSUBSTRINGHIGHLIGHTER_H__
+#endif // CSSUBSTRINGHIGHLIGHTER_H

@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSABSTRACTTREEITEM_H__
-#define __CSABSTRACTTREEITEM_H__
+#ifndef CSABSTRACTTREEITEM_H
+#define CSABSTRACTTREEITEM_H
 
 #include <QtCore/QList>
 #include <QtCore/QVariant>
@@ -39,7 +39,7 @@
 
 class CS_QT_EXPORT csAbstractTreeItem {
 public:
-  csAbstractTreeItem(csAbstractTreeItem *parent = 0);
+  csAbstractTreeItem(csAbstractTreeItem *parent = nullptr);
   virtual ~csAbstractTreeItem();
 
   void appendChild(csAbstractTreeItem *child);
@@ -63,4 +63,4 @@ private:
   csAbstractTreeItem *_parent;
 };
 
-#endif // __CSABSTRACTTREEITEM_H__
+#endif // CSABSTRACTTREEITEM_H

@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSHIGHLIGHTINGDELEGATE_H__
-#define __CSHIGHLIGHTINGDELEGATE_H__
+#ifndef CSHIGHLIGHTINGDELEGATE_H
+#define CSHIGHLIGHTINGDELEGATE_H
 
 #include <QtCore/QModelIndex>
 #include <QtGui/QPainter>
@@ -42,7 +42,7 @@
 class CS_QT_EXPORT csHighlightingDelegate : public QStyledItemDelegate {
   Q_OBJECT
 public:
-  csHighlightingDelegate(QObject *parent = 0);
+  csHighlightingDelegate(QObject *parent = nullptr);
   ~csHighlightingDelegate();
 
   void setSubstring(const QString& substring);
@@ -59,4 +59,4 @@ private:
   QString _substring;
 };
 
-#endif // __CSHIGHLIGHTINGDELEGATE_H__
+#endif // CSHIGHLIGHTINGDELEGATE_H

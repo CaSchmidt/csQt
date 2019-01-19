@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSMULTITOOLBUTTON_H__
-#define __CSMULTITOOLBUTTON_H__
+#ifndef CSMULTITOOLBUTTON_H
+#define CSMULTITOOLBUTTON_H
 
 #include <QtCore/QList>
 #include <QtCore/QPair>
@@ -64,4 +64,4 @@ private:
   const int _invalidId;
 };
 
-#endif // __CSMULTITOOLBUTTON_H__
+#endif // CSMULTITOOLBUTTON_H

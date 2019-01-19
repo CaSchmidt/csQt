@@ -58,7 +58,7 @@ bool csTableCopier::eventFilter(QObject *watched, QEvent *event)
   if( event->type() == QEvent::KeyPress ) {
     QKeyEvent *keyEvent = dynamic_cast<QKeyEvent*>(event);
     QTableView *tableView = dynamic_cast<QTableView*>(watched);
-    if( keyEvent == QKeySequence::Copy  &&  tableView != 0 ) {
+    if( keyEvent == QKeySequence::Copy  &&  tableView != nullptr ) {
       const QModelIndex topLeft     = topLeftSelection(tableView);
       const QModelIndex bottomRight = bottomRightSelection(tableView);
 

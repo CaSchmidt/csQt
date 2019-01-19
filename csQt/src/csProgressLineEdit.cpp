@@ -40,7 +40,7 @@
 class csProgressLineEditStyle : public QProxyStyle {
   Q_OBJECT
 public:
-  csProgressLineEditStyle(QStyle *style = 0)
+  csProgressLineEditStyle(QStyle *style = nullptr)
     : QProxyStyle(style)
     , _color(64, 192, 255)
     , _progress(0)
@@ -59,7 +59,7 @@ public:
       const qreal ratio = qreal(_progress) / qreal(100.0);
       const QRect rect0 = subElementRect(QStyle::SE_LineEditContents, option, widget);
       QRect rect(rect0);
-      rect.setWidth(qBound(0, (int)(ratio*rect0.width()), rect0.width()));
+      rect.setWidth(qBound(0, static_cast<int>(ratio*rect0.width()), rect0.width()));
       if( rect.width() > 0 ) {
         painter->save();
         painter->setPen(Qt::NoPen);

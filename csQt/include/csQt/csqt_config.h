@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSQT_CONFIG_H__
-#define __CSQT_CONFIG_H__
+#ifndef CSQT_CONFIG_H
+#define CSQT_CONFIG_H
 
 #include <QtCore/QtGlobal>
 
@@ -40,4 +40,4 @@
 # define CS_QT_EXPORT  Q_DECL_IMPORT
 #endif
 
-#endif // __CSQT_CONFIG_H__
+#endif // CSQT_CONFIG_H

@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSNAMESPACE_H__
-#define __CSNAMESPACE_H__
+#ifndef CSNAMESPACE_H
+#define CSNAMESPACE_H
 
 #include <QtCore/QFlags>
 
@@ -53,4 +53,4 @@ namespace cs {
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(cs::TableExtractionFlags)
 
-#endif // __CSNAMESPACE_H__
+#endif // CSNAMESPACE_H

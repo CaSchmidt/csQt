@@ -53,19 +53,19 @@ bool csColumnResizer::eventFilter(QObject *watched, QEvent *event)
     QKeyEvent *keyEvent = dynamic_cast<QKeyEvent*>(event);
     if( keyEvent->modifiers() == Qt::NoModifier  &&
         keyEvent->key() == Qt::Key_F9 ) {
-      QHeaderView *headerView(0);
+      QHeaderView *headerView(nullptr);
 
       QTableView *tableView = dynamic_cast<QTableView*>(watched);
-      if( tableView != 0 ) {
+      if( tableView != nullptr ) {
         headerView = tableView->horizontalHeader();
       }
 
       QTreeView *treeView = dynamic_cast<QTreeView*>(watched);
-      if( treeView != 0 ) {
+      if( treeView != nullptr ) {
         headerView = treeView->header();
       }
 
-      if( headerView != 0  &&  headerView->isVisible() ) {
+      if( headerView != nullptr  &&  headerView->isVisible() ) {
         headerView->resizeSections(QHeaderView::ResizeToContents);
         return true;
       }

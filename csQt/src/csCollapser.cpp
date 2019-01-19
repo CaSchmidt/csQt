@@ -41,7 +41,7 @@
 
 csCollapser::csCollapser(QSplitter *splitter, QWidget *widget,
                          const QColor& color, const int ratio)
-  : QToolButton(0)
+  : QToolButton(nullptr)
   , _lastSize(1)
   , _splitter(splitter)
   , _widget(widget)

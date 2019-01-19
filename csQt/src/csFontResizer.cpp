@@ -92,7 +92,7 @@ void csFontResizer::resizeFont(QObject *watched, const int size, const int incre
   }
 
   QWidget *widget = dynamic_cast<QWidget*>(watched);
-  if( widget == 0 ) {
+  if( widget == nullptr ) {
     return;
   }
 

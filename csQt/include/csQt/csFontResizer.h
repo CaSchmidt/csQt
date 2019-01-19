@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSFONTRESIZER_H__
-#define __CSFONTRESIZER_H__
+#ifndef CSFONTRESIZER_H
+#define CSFONTRESIZER_H
 
 #include <QtCore/QHash>
 #include <QtCore/QObject>
@@ -42,7 +42,7 @@ class QWidget;
 class  CS_QT_EXPORT csFontResizer : public QObject {
   Q_OBJECT
 public:
-  csFontResizer(QObject *parent = 0);
+  csFontResizer(QObject *parent = nullptr);
   ~csFontResizer();
 
   bool eventFilter(QObject *watched, QEvent *event);
@@ -56,4 +56,4 @@ private:
   QHash<QWidget*,int> defSize;
 };
 
-#endif // __CSFONTRESIZER_H__
+#endif // CSFONTRESIZER_H

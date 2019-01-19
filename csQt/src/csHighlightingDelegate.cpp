@@ -67,7 +67,7 @@ void csHighlightingDelegate::paint(QPainter *painter,
   initStyleOption(&opt, index);
 
   const QWidget *widget = opt.widget;
-  QStyle *style = widget != 0 ?  widget->style() : QApplication::style();
+  QStyle *style = widget != nullptr ?  widget->style() : QApplication::style();
 
   painter->save();
   painter->setClipRect(opt.rect);

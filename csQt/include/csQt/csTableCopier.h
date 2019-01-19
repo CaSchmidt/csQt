@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSTABLECOPIER_H__
-#define __CSTABLECOPIER_H__
+#ifndef CSTABLECOPIER_H
+#define CSTABLECOPIER_H
 
 #include <QtCore/QModelIndex>
 #include <QtCore/QObject>
@@ -43,7 +43,7 @@ class QTableView;
 class CS_QT_EXPORT csTableCopier : public QObject {
   Q_OBJECT
 public:
-  csTableCopier(QObject *parent = 0);
+  csTableCopier(QObject *parent = nullptr);
   ~csTableCopier();
 
   bool eventFilter(QObject *watched, QEvent *event);
@@ -56,4 +56,4 @@ private:
   cs::TableExtractionFlags extractionFlags;
 };
 
-#endif // __CSTABLECOPIER_H__
+#endif // CSTABLECOPIER_H

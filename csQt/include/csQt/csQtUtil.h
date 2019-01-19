@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSQTUTIL_H__
-#define __CSQTUTIL_H__
+#ifndef CSQTUTIL_H
+#define CSQTUTIL_H
 
 #include <QtCore/QLocale>
 #include <QtCore/QModelIndex>
@@ -89,17 +89,17 @@ CS_QT_EXPORT QString csVariantToString(const QVariant& variant,
 template<class T>
 T *csFindParentWidget(QWidget *widget)
 {
-  if( widget == 0 ) {
-    return 0;
+  if( widget == nullptr ) {
+    return nullptr;
   }
 
-  while( (widget = widget->parentWidget()) != 0 ) {
-    if( dynamic_cast<T*>(widget) != 0 ) {
+  while( (widget = widget->parentWidget()) != nullptr ) {
+    if( dynamic_cast<T*>(widget) != nullptr ) {
       return dynamic_cast<T*>(widget);
     }
   }
 
-  return 0;
+  return nullptr;
 }
 
-#endif // __CSQTUTIL_H__
+#endif // CSQTUTIL_H

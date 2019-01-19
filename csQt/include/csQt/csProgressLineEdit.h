@@ -29,8 +29,8 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
-#ifndef __CSPROGRESSLINEEDIT_H__
-#define __CSPROGRESSLINEEDIT_H__
+#ifndef CSPROGRESSLINEEDIT_H
+#define CSPROGRESSLINEEDIT_H
 
 #include <QtWidgets/QLineEdit>
 
@@ -49,4 +49,4 @@ private:
   class csProgressLineEditStyle *_style;
 };
 
-#endif // __CSPROGRESSLINEEDIT_H__
+#endif // CSPROGRESSLINEEDIT_H
