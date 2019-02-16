@@ -77,6 +77,11 @@ install(TARGETS csQt
   RUNTIME DESTINATION bin
   )
 
+install(DIRECTORY include/
+  DESTINATION include
+  PATTERN "internal" EXCLUDE
+  )
+
 ### Tests ####################################################################
 
 if(ENABLE_TESTS)
