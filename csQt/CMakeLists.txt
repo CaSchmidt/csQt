@@ -26,6 +26,7 @@ set(csQt_HEADERS
   include/csQt/csAbstractTreeItem.h
   include/csQt/csCollapser.h
   include/csQt/csColumnResizer.h
+  include/csQt/csDialogButtonBox.h
   include/csQt/csFontResizer.h
   include/csQt/csHighlightingDelegate.h
   include/csQt/csImageTip.h
@@ -44,6 +45,7 @@ set(csQt_SOURCES
   src/csAbstractTreeItem.cpp
   src/csCollapser.cpp
   src/csColumnResizer.cpp
+  src/csDialogButtonBox.cpp
   src/csFontResizer.cpp
   src/csHighlightingDelegate.cpp
   src/csImageTip.cpp
