@@ -108,9 +108,15 @@ int main(int argc, char **argv)
 
   // End Data ////////////////////////////////////////////////////////////////
 
+#if 0
   csTreeModel *model = new csTreeModel(root, view);
+#else
+  csTreeModel *model = new csTreeModel(nullptr, view);
+  model->setRoot(root);
+#endif
   view->setModel(model);
   view->expandAll();
+  view->header()->resizeSections(QHeaderView::ResizeToContents);
 
   const int result = app.exec();
   delete view;
