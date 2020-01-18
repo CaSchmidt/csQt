@@ -44,23 +44,27 @@ CS_QT_EXPORT csAbstractTreeItem *csTreeItem(const QModelIndex& index)
 
 csTreeModel::csTreeModel(csAbstractTreeItem *rootItem, QObject *parent)
   : QAbstractItemModel(parent)
-  , _rootItem(rootItem)
+  , _root(rootItem)
 {
 }
 
 csTreeModel::~csTreeModel()
 {
-  delete _rootItem;
 }
 
-void csTreeModel::setTree(csAbstractTreeItem *rootItem)
+csAbstractTreeItem *csTreeModel::root() const
 {
-  if( rootItem != nullptr ) {
-    beginResetModel();
-    delete _rootItem;
-    _rootItem = rootItem;
-    endResetModel();
+  return _root.get();
+}
+
+void csTreeModel::setRoot(csAbstractTreeItem *rootItem)
+{
+  if( rootItem == nullptr ) {
+    return;
   }
+  beginResetModel();
+  _root.reset(rootItem);
+  endResetModel();
 }
 
 int csTreeModel::columnCount(const QModelIndex& parent) const
@@ -68,7 +72,7 @@ int csTreeModel::columnCount(const QModelIndex& parent) const
   if( parent.isValid() ) {
     return csTreeItem(parent)->columnCount();
   }
-  return _rootItem->columnCount();
+  return _root->columnCount();
 }
 
 QVariant csTreeModel::data(const QModelIndex& index, int role) const
@@ -82,7 +86,7 @@ QVariant csTreeModel::data(const QModelIndex& index, int role) const
 Qt::ItemFlags csTreeModel::flags(const QModelIndex& index) const
 {
   if( !index.isValid() ) {
-    return 0;
+    return Qt::NoItemFlags;
   }
   return QAbstractItemModel::flags(index);
 }
@@ -91,7 +95,7 @@ QVariant csTreeModel::headerData(int section, Qt::Orientation orientation,
                                  int role) const
 {
   if( orientation == Qt::Horizontal ) {
-    return _rootItem->data(section, role);
+    return _root->data(section, role);
   }
   return QVariant();
 }
@@ -105,7 +109,7 @@ QModelIndex csTreeModel::index(int row, int column,
 
   csAbstractTreeItem *parentItem = parent.isValid()
       ? csTreeItem(parent)
-      : _rootItem;
+      : _root.get();
 
   csAbstractTreeItem *childItem = parentItem->childItem(row);
   if( childItem != nullptr ) {
@@ -124,7 +128,7 @@ QModelIndex csTreeModel::parent(const QModelIndex& child) const
   csAbstractTreeItem  *childItem = csTreeItem(child);
   csAbstractTreeItem *parentItem = childItem->parentItem();
 
-  if( parentItem == _rootItem ) {
+  if( parentItem == _root.get() ) {
     return QModelIndex();
   }
 
@@ -139,7 +143,7 @@ int csTreeModel::rowCount(const QModelIndex& parent) const
 
   csAbstractTreeItem *parentItem = parent.isValid()
       ? csTreeItem(parent)
-      : _rootItem;
+      : _root.get();
 
   return parentItem->rowCount();
 }

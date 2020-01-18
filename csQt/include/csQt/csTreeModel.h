@@ -32,6 +32,8 @@
 #ifndef CSTREEMODEL_H
 #define CSTREEMODEL_H
 
+#include <memory>
+
 #include <QtCore/QAbstractItemModel>
 
 #include <csQt/csqt_config.h>
@@ -44,7 +46,8 @@ public:
   csTreeModel(csAbstractTreeItem *rootItem, QObject *parent);
   ~csTreeModel();
 
-  void setTree(csAbstractTreeItem *rootItem);
+  csAbstractTreeItem *root() const;
+  void setRoot(csAbstractTreeItem *rootItem);
 
   int columnCount(const QModelIndex& parent = QModelIndex()) const;
   QVariant data(const QModelIndex& index,
@@ -58,7 +61,7 @@ public:
   int rowCount(const QModelIndex& parent = QModelIndex()) const;
 
 private:
-  csAbstractTreeItem *_rootItem;
+  std::unique_ptr<csAbstractTreeItem> _root;
 };
 
 CS_QT_EXPORT csAbstractTreeItem *csTreeItem(const QModelIndex& index);
