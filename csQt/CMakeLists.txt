@@ -14,10 +14,6 @@ include(FormatOutputName)
 
 ### Dependencies #############################################################
 
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/forms)
 find_package(Qt5Widgets 5.6 REQUIRED)
 
 ### csQt #####################################################################
@@ -71,7 +67,13 @@ target_link_libraries(csQt Qt5::Widgets)
 format_output_name(csQt "csQt")
 
 target_compile_definitions(csQt PRIVATE CS_BUILD_QT_LIB)
-target_include_directories(csQt PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(csQt PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set_target_properties(csQt PROPERTIES
+  AUTOMOC ON
+  AUTORCC ON
+  AUTOUIC ON
+  AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/forms
+  )
 
 install(TARGETS csQt
   ARCHIVE DESTINATION lib
