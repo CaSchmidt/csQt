@@ -36,12 +36,6 @@
 
 namespace cs {
 
-  enum TrieMatch {
-    NoMatch = 0,
-    PartialMatch,
-    ExactMatch
-  };
-
   enum TableExtractionFlag {
     NoTableExtractionFlags = 0,
     ExtractHHeader         = 1,
