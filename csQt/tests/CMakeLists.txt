@@ -16,5 +16,6 @@ endmacro()
 
 ### Tests ####################################################################
 
+cs_test(test_hl include/hlModel.h src/hlModel.cpp src/test_hl.cpp)
 cs_test(test_imagetip include/imagetip.h src/imagetip.cpp src/test_imagetip.cpp)
 cs_test(test_tree src/test_tree.cpp)
