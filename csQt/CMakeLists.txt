@@ -35,6 +35,7 @@ set(csQt_HEADERS
   include/csQt/csTableCopier.h
   include/csQt/csTreeModel.h
   include/csQt/csqt_config.h
+  include/QtCreator/HighlightingItemDelegate.h
   )
 
 set(csQt_SOURCES
@@ -52,6 +53,7 @@ set(csQt_SOURCES
   src/csSubstringHighlighter.cpp
   src/csTableCopier.cpp
   src/csTreeModel.cpp
+  src/QtCreator/HighlightingItemDelegate.cpp
   )
 
 ### Target ###################################################################
