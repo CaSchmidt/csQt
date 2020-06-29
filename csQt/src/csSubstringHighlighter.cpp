@@ -101,11 +101,11 @@ void csSubstringHighlighter::setForeground(const QColor& color)
 
 void csSubstringHighlighter::setSubstring(const QString& substring)
 {
-  const QStringList words = substring.split(QRegExp(_L1("\\s+")), QString::SkipEmptyParts);
+  const QStringList words = substring.split(QRegExp(QStringLiteral("\\s+")), QString::SkipEmptyParts);
   if( words.isEmpty() ) {
     _matcher.setPattern(QString());
   } else {
-    _matcher.setPattern(words.join(_L1("\\s+")));
+    _matcher.setPattern(words.join(QStringLiteral("\\s+")));
   }
   rehighlight();
 }
