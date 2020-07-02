@@ -39,6 +39,18 @@
 
 ////// Public ////////////////////////////////////////////////////////////////
 
+CS_QT_EXPORT int csIndexDepth(const QModelIndex& index)
+{
+  if( !index.isValid() ) {
+    return -1;
+  }
+  int depth = 0;
+  for(QModelIndex child = index; child.parent().isValid(); child = child.parent()) {
+    depth++;
+  }
+  return depth;
+}
+
 CS_QT_EXPORT QRect csScreenGeometry(const QPoint& globalPos, QWidget *widget)
 {
   const int no = csScreenNumber(globalPos, widget);

@@ -84,6 +84,8 @@ inline qreal csScale(const QSizeF& from, const QSizeF& to)
       : sh;
 }
 
+CS_QT_EXPORT int csIndexDepth(const QModelIndex& index);
+
 CS_QT_EXPORT QRect csScreenGeometry(const QPoint& globalPos, QWidget *widget);
 
 CS_QT_EXPORT int csScreenNumber(const QPoint& globalPos, QWidget *widget);
