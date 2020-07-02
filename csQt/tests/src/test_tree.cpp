@@ -6,7 +6,18 @@
 #include <QtWidgets/QTreeView>
 
 #include <csQt/csAbstractTreeItem.h>
+#include <csQt/csQtUtil.h>
 #include <csQt/csTreeModel.h>
+
+void print_depth(const QAbstractItemModel *model,
+                 const int row, const QModelIndex& parent = QModelIndex())
+{
+  const QModelIndex index = model->index(row, 0, parent);
+  const QString text = model->data(index).toString();
+  printf("row = %d, depth = %d, text = %s\n",
+         index.row(), csIndexDepth(index), qPrintable(text));
+  fflush(stdout);
+}
 
 class TreeItem : public csAbstractTreeItem {
 public:
@@ -117,6 +128,9 @@ int main(int argc, char **argv)
   view->setModel(model);
   view->expandAll();
   view->header()->resizeSections(QHeaderView::ResizeToContents);
+
+  print_depth(model, 1);
+  print_depth(model, 1, model->index(1, 0));
 
   const int result = app.exec();
   delete view;
