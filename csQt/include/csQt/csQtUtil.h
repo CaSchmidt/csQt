@@ -59,6 +59,22 @@ inline const char *csEnumText(const QEnumT& value)
   return QMetaEnum::fromType<QEnumT>().valueToKey(value);
 }
 
+template<typename T>
+inline T *csFindParentWidget(QWidget *widget)
+{
+  if( widget == nullptr ) {
+    return nullptr;
+  }
+
+  while( (widget = widget->parentWidget()) != nullptr ) {
+    if( dynamic_cast<T*>(widget) != nullptr ) {
+      return dynamic_cast<T*>(widget);
+    }
+  }
+
+  return nullptr;
+}
+
 inline qreal csScale(const QSizeF& from, const QSizeF& to)
 {
   const qreal sh = to.width() /from.width();
@@ -84,21 +100,5 @@ CS_QT_EXPORT QString csTableToString(const QTableView *table,
 CS_QT_EXPORT QString csVariantToString(const QVariant& variant,
                                        const QLocale& locale = QLocale(),
                                        const char format = 'g', const int precision = 6);
-
-template<class T>
-T *csFindParentWidget(QWidget *widget)
-{
-  if( widget == nullptr ) {
-    return nullptr;
-  }
-
-  while( (widget = widget->parentWidget()) != nullptr ) {
-    if( dynamic_cast<T*>(widget) != nullptr ) {
-      return dynamic_cast<T*>(widget);
-    }
-  }
-
-  return nullptr;
-}
 
 #endif // CSQTUTIL_H
