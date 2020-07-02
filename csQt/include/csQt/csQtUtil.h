@@ -33,6 +33,7 @@
 #define CSQTUTIL_H
 
 #include <QtCore/QLocale>
+#include <QtCore/QMetaEnum>
 #include <QtCore/QModelIndex>
 #include <QtCore/QRect>
 #include <QtCore/QRectF>
@@ -51,6 +52,12 @@ class QPoint;
 class QTableView;
 class QVariant;
 class QWidget;
+
+template<typename QEnumT>
+inline const char *csEnumText(const QEnumT& value)
+{
+  return QMetaEnum::fromType<QEnumT>().valueToKey(value);
+}
 
 inline qreal csScale(const QSizeF& from, const QSizeF& to)
 {
