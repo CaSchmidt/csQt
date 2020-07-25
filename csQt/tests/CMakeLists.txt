@@ -2,6 +2,10 @@ macro(cs_test target)
   set(sources ${ARGN})
   add_executable(${target} ${sources})
   format_output_name(${target} ${target})
+  target_compile_definitions(${target} PRIVATE
+    QT_NO_CAST_FROM_ASCII
+    QT_NO_CAST_TO_ASCII
+    )
   target_include_directories(${target}
     PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include
     )

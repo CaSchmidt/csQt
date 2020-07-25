@@ -58,8 +58,6 @@ set(csQt_SOURCES
 
 ### Target ###################################################################
 
-add_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII)
-
 add_library(csQt SHARED
   ${csQt_HEADERS} ${csQt_SOURCES}
   )
@@ -68,7 +66,11 @@ target_link_libraries(csQt Qt5::Widgets)
 
 format_output_name(csQt "csQt")
 
-target_compile_definitions(csQt PRIVATE CS_BUILD_QT_LIB)
+target_compile_definitions(csQt PRIVATE
+  CS_BUILD_QT_LIB
+  QT_NO_CAST_FROM_ASCII
+  QT_NO_CAST_TO_ASCII
+  )
 target_include_directories(csQt PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set_target_properties(csQt PROPERTIES
   AUTOMOC ON
