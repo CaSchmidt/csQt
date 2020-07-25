@@ -18,6 +18,14 @@ find_package(Qt5Widgets 5.6 REQUIRED)
 
 ### csQt #####################################################################
 
+list(APPEND csQt_AUX
+  resources/csQt.qrc
+  )
+
+list(APPEND csQt_FORMS
+  forms/csWListEditor.ui
+  )
+
 set(csQt_HEADERS
   include/csQt/csAbstractTreeItem.h
   include/csQt/csCollapser.h
@@ -34,6 +42,7 @@ set(csQt_HEADERS
   include/csQt/csSubstringHighlighter.h
   include/csQt/csTableCopier.h
   include/csQt/csTreeModel.h
+  include/csQt/csWListEditor.h
   include/csQt/csqt_config.h
   include/QtCreator/HighlightingItemDelegate.h
   )
@@ -53,13 +62,17 @@ set(csQt_SOURCES
   src/csSubstringHighlighter.cpp
   src/csTableCopier.cpp
   src/csTreeModel.cpp
+  src/csWListEditor.cpp
   src/QtCreator/HighlightingItemDelegate.cpp
   )
 
 ### Target ###################################################################
 
 add_library(csQt SHARED
-  ${csQt_HEADERS} ${csQt_SOURCES}
+  ${csQt_AUX}
+  ${csQt_FORMS}
+  ${csQt_HEADERS}
+  ${csQt_SOURCES}
   )
 
 target_link_libraries(csQt Qt5::Widgets)
