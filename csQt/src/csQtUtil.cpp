@@ -29,11 +29,12 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
+#include <QtCore/QDate>
+#include <QtGui/QClipboard>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QTableView>
-#include <QtCore/QDate>
 
 #include "csQt/csQtUtil.h"
 
@@ -77,6 +78,23 @@ CS_QT_EXPORT void csSetBackgroundColor(QWidget *w, const QColor &c,
     p.setColor(QPalette::Inactive, QPalette::Base, c);
   }
   w->setPalette(p);
+}
+
+CS_QT_EXPORT void csSetClipboardText(const QString& text)
+{
+  QGuiApplication::clipboard()->setText(text);
+}
+
+CS_QT_EXPORT void csSetClipboardText(const QStringList& list, const QString& _sep)
+{
+  const QString sep = _sep.isEmpty()
+#ifdef Q_OS_WINDOWS
+      ? QStringLiteral("\r\n")
+#else
+      ? QStringLiteral("\n")
+#endif
+      : _sep;
+  QGuiApplication::clipboard()->setText(list.join(sep));
 }
 
 CS_QT_EXPORT QString csTableToString(const QTableView *table,

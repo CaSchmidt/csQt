@@ -93,6 +93,10 @@ CS_QT_EXPORT int csScreenNumber(const QPoint& globalPos, QWidget *widget);
 CS_QT_EXPORT void csSetBackgroundColor(QWidget *w, const QColor& c,
                                        const bool inactive = true);
 
+CS_QT_EXPORT void csSetClipboardText(const QString& text);
+
+CS_QT_EXPORT void csSetClipboardText(const QStringList& list, const QString& _sep = QString());
+
 CS_QT_EXPORT QString csTableToString(const QTableView *table,
                                      const QModelIndex& topLeft = QModelIndex(),
                                      const QModelIndex& bottomRight = QModelIndex(),
