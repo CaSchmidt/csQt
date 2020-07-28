@@ -43,6 +43,6 @@ CS_QT_EXPORT QPushButton *csAddButton(QDialogButtonBox *box, const QString& text
 
 CS_QT_EXPORT bool csRemoveAllButtons(QDialogButtonBox *box);
 
-CS_QT_EXPORT void csRemoveDefaults(QDialogButtonBox *box);
+CS_QT_EXPORT void csRemoveDefaults(QDialogButtonBox *box, const bool disconnect = false);
 
 #endif // CSDIALOGBUTTONBOX_H

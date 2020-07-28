@@ -55,13 +55,16 @@ CS_QT_EXPORT bool csRemoveAllButtons(QDialogButtonBox *box)
   return box->buttons().size() == 0;
 }
 
-CS_QT_EXPORT void csRemoveDefaults(QDialogButtonBox *box)
+CS_QT_EXPORT void csRemoveDefaults(QDialogButtonBox *box, const bool disconnect)
 {
   const QList<QAbstractButton*> buttons = box->buttons();
   for(QAbstractButton *button : buttons) {
     QPushButton *pb = dynamic_cast<QPushButton*>(button);
     if( pb == nullptr ) {
       continue;
+    }
+    if( disconnect ) {
+      pb->disconnect();
     }
     pb->setAutoDefault(false);
     pb->setDefault(false);
