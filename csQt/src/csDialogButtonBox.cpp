@@ -51,8 +51,9 @@ CS_QT_EXPORT bool csRemoveAllButtons(QDialogButtonBox *box)
   const QList<QAbstractButton*> buttons = box->buttons();
   for(QAbstractButton *button : buttons) {
     box->removeButton(button);
+    delete button;
   }
-  return box->buttons().size() == 0;
+  return box->buttons().isEmpty();
 }
 
 CS_QT_EXPORT void csRemoveDefaults(QDialogButtonBox *box, const bool disconnect)
