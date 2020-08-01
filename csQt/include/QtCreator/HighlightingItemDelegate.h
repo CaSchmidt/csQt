@@ -42,12 +42,15 @@ namespace QtCreator {
   };
 
   class CS_QT_EXPORT HighlightingItemDelegate : public QItemDelegate {
+    Q_OBJECT
+    Q_PROPERTY(int tabWidth READ tabWidth WRITE setTabWidth NOTIFY tabWidthChanged)
   public:
     HighlightingItemDelegate(int tabWidth, QObject *parent = nullptr);
 
     void paint(QPainter *painter, const QStyleOptionViewItem& option,
                const QModelIndex& index) const override;
     void setTabWidth(int width);
+    int tabWidth() const;
 
   private:
     int drawLineNumber(QPainter *painter, const QStyleOptionViewItem& option, const QRect& rect,
@@ -59,6 +62,9 @@ namespace QtCreator {
                      const QString& text, const QVector<QTextLayout::FormatRange>& format) const;
 
     QString m_tabString;
+
+  signals:
+    void tabWidthChanged(int width);
   };
 
 } // namespace QtCreator

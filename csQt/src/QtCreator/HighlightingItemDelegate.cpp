@@ -101,7 +101,13 @@ namespace QtCreator {
 
   void HighlightingItemDelegate::setTabWidth(int width)
   {
-    m_tabString = QString(width, _L1C(' '));
+    m_tabString = QString(qMax(width, 1), _L1C(' '));
+    emit tabWidthChanged(tabWidth());
+  }
+
+  int HighlightingItemDelegate::tabWidth() const
+  {
+    return m_tabString.size();
   }
 
   // returns the width of the line number area
