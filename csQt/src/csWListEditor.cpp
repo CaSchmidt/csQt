@@ -32,6 +32,8 @@
 #include "csQt/csWListEditor.h"
 #include "ui_csWListEditor.h"
 
+#include "csQt/csQtUtil.h"
+
 ////// public ////////////////////////////////////////////////////////////////
 
 csWListEditor::csWListEditor(QWidget *parent, Qt::WindowFlags f)
@@ -74,6 +76,19 @@ QPushButton *csWListEditor::button(const Button id)
   return nullptr;
 }
 
+void csWListEditor::setShowContextMenu(const bool on)
+{
+  if( on ) {
+    ui->listView->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->listView, &QListView::customContextMenuRequested,
+            this, &csWListEditor::showContextMenu);
+  } else {
+    ui->listView->setContextMenuPolicy(Qt::NoContextMenu);
+    disconnect(ui->listView, &QListView::customContextMenuRequested,
+               this, &csWListEditor::showContextMenu);
+  }
+}
+
 const QListView *csWListEditor::view() const
 {
   return ui->listView;
@@ -90,6 +105,11 @@ void csWListEditor::onAdd()
 {
 }
 
+void csWListEditor::onContextMenu(const QPoint& globalPos)
+{
+  Q_UNUSED(globalPos);
+}
+
 void csWListEditor::onDown()
 {
 }
@@ -100,4 +120,9 @@ void csWListEditor::onRemove()
 
 void csWListEditor::onUp()
 {
+}
+
+void csWListEditor::showContextMenu(const QPoint& p)
+{
+  onContextMenu(csMapToGlobal(ui->listView, p));
 }

@@ -51,9 +51,12 @@ public:
 
 private slots:
   virtual void onAdd();
+  virtual void onContextMenu(const QPoint& globalPos);
   virtual void onDown();
   virtual void onRemove();
   virtual void onUp();
+
+  void showContextMenu(const QPoint& p);
 
 protected:
   enum Button {
@@ -65,6 +68,9 @@ protected:
 
   const QPushButton *button(const Button id) const;
   QPushButton *button(const Button id);
+
+  void setShowContextMenu(const bool on);
+
   const QListView *view() const;
   QListView *view();
 
