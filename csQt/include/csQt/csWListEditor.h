@@ -63,7 +63,9 @@ protected:
     Up
   };
 
+  const QPushButton *button(const Button id) const;
   QPushButton *button(const Button id);
+  const QListView *view() const;
   QListView *view();
 
 private:

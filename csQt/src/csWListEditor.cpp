@@ -55,6 +55,11 @@ csWListEditor::~csWListEditor()
 
 ////// protected /////////////////////////////////////////////////////////////
 
+const QPushButton *csWListEditor::button(const Button id) const
+{
+  return const_cast<csWListEditor*>(this)->button(id);
+}
+
 QPushButton *csWListEditor::button(const Button id)
 {
   if(        id == Add ) {
@@ -67,6 +72,11 @@ QPushButton *csWListEditor::button(const Button id)
     return ui->upButton;
   }
   return nullptr;
+}
+
+const QListView *csWListEditor::view() const
+{
+  return ui->listView;
 }
 
 QListView *csWListEditor::view()
