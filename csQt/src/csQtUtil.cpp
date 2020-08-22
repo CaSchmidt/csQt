@@ -31,6 +31,7 @@
 
 #include <QtCore/QDate>
 #include <QtGui/QClipboard>
+#include <QtWidgets/QAbstractItemView>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDesktopWidget>
 #include <QtWidgets/QHeaderView>
@@ -50,6 +51,11 @@ CS_QT_EXPORT int csIndexDepth(const QModelIndex& index)
     depth++;
   }
   return depth;
+}
+
+CS_QT_EXPORT QPoint csMapToGlobal(const QAbstractItemView *view, const QPoint& p)
+{
+  return view->viewport()->mapToGlobal(p);
 }
 
 CS_QT_EXPORT QRect csScreenGeometry(const QPoint& globalPos, QWidget *widget)
