@@ -29,7 +29,16 @@
 ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *****************************************************************************/
 
+#include <QtCore/QModelIndex>
+
 #include "csQt/csAbstractTreeItem.h"
+
+////// Public ////////////////////////////////////////////////////////////////
+
+CS_QT_EXPORT csAbstractTreeItem *csTreeItem(const QModelIndex& index)
+{
+  return static_cast<csAbstractTreeItem*>(index.internalPointer());
+}
 
 ////// public ////////////////////////////////////////////////////////////////
 

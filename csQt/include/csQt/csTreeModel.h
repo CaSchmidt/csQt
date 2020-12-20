@@ -64,6 +64,4 @@ private:
   std::unique_ptr<csAbstractTreeItem> _root;
 };
 
-CS_QT_EXPORT csAbstractTreeItem *csTreeItem(const QModelIndex& index);
-
 #endif // CSTREEMODEL_H

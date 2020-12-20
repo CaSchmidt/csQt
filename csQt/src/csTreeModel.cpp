@@ -33,13 +33,6 @@
 
 #include "csQt/csAbstractTreeItem.h"
 
-////// Public ////////////////////////////////////////////////////////////////
-
-CS_QT_EXPORT csAbstractTreeItem *csTreeItem(const QModelIndex& index)
-{
-  return static_cast<csAbstractTreeItem*>(index.internalPointer());
-}
-
 ////// public ////////////////////////////////////////////////////////////////
 
 csTreeModel::csTreeModel(csAbstractTreeItem *rootItem, QObject *parent)

@@ -63,4 +63,6 @@ private:
   csAbstractTreeItem *_parent;
 };
 
+CS_QT_EXPORT csAbstractTreeItem *csTreeItem(const QModelIndex& index);
+
 #endif // CSABSTRACTTREEITEM_H
